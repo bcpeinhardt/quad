@@ -17,14 +17,14 @@ read_users_path |config_path|
         "config_info": {
             "users_path": (path)
         }
-    ``` <- read("config.json") 
+    ``` <- read(config_path) 
     path
 end
 
 get_rows |users_path|
     ```csv
         name, _, age, _ as users
-    ``` <- read(path)
+    ``` <- read(users_path)
     users
 end
 
