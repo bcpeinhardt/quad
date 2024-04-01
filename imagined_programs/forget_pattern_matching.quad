@@ -1,0 +1,15 @@
+submissions, err = read_csv("./form_submissions.csv")
+if err |e| 
+    print("Error reading form submissions csv: {e}")
+end
+opt_outs = read_csv("./opt_outs.csv")
+
+audience = submissions.filter(|sub| 
+    !opt_outs.any(|oo| oo.email == sub.email)
+end)
+
+payload = [
+    "mailing_list": audience
+]
+
+// Nah I think I like the pattern matching for extracting from large inputs

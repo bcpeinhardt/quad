@@ -3,7 +3,7 @@
 # of user's to send follow up emails to 
 
 ```csv.headers
-first_name, _, email as submissions 
+first_name, email as submissions 
 ``` <- read("./form_submissions.csv")
 
 ```csv.headers
@@ -14,6 +14,7 @@ audience = submissions.filter_map(|sub|
     !opt_outs.contains(sub.email).then_some(sub.email)
 end)
 
+# Should this be redundent/automatic? Should probably be a normal map on a list.
 ```json.map(audience)
 {
     "name": (audience.name),

@@ -41,3 +41,4 @@ end
 ```
 
 Making this repo in case I decide to prototype something.
+An initial implementation might start with yaml, json, and csv.
