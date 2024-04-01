@@ -14,18 +14,5 @@ audience = submissions.filter_map(|sub|
     !opt_outs.contains(sub.email).then_some(sub.email)
 end)
 
-# Should this be redundent/automatic? Should probably be a normal map on a list.
-```json.map(audience)
-{
-    "name": (audience.name),
-    "email": (audience.email)
-}
-``` -> mailing_list
-
-```json
-{
-    "mailing_list": (mailing_list)
-}
-``` -> payload
-
-write("./payload.json", payload)
+# `mailing_list` gets automagically serialized
+write("./payload.json", ["mailing_list": mailing_list])

@@ -1,0 +1,22 @@
+# Comments start with a # sign
+
+# Primitives 
+name = "Ben" # String, UTF8
+age = 26 # Integer
+weight = 222.2 # Float
+is_cool = false # Boolean
+
+# "The Collection"
+# Inspired by PHP's "array" type, one collection type to rule them all
+# Really just a map. Key's must be strings or integers.
+# Can be automagically serialized to JSON, YAML, and CSV
+
+nums = [1, 2, 3]
+obj = [
+    "name": name,
+    "age": age,
+    "is_cool": is_cool,
+    "favorite_nums": nums, # Hey look, trailing commas
+]
+obj["name"] = "Benjamin"
+nums[0] = -1

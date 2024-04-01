@@ -9,7 +9,7 @@ picturing something like
 ```quad
 config_path = "./config.json"
 users = get_rows(read_users_path(config_path))
-of_age_users = filter(users, |user| user.age >= 21 end)
+of_age_users = filter(users, |user| user["age"] >= 21 end)
 write_users("./of_age.json", of_age_users)
 
 read_users_path |config_path|
@@ -30,12 +30,12 @@ end
 
 write_users |of_age_path, of_age_users|
     total_of_age_users = count(of_age_users)
-    ```json
-        {
-            "total_of_age_users": (total_of_age_users),
-            "of_age_users": (of_age_users)
-        }
-    ``` -> output
+
+    output = [
+      "total_of_age_users": total_of_age_users,
+      "of_age_users": of_age_users,
+    ]
+
     write(of_age_path, output)
 end
 ```
