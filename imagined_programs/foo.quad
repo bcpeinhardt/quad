@@ -23,7 +23,7 @@ end)
 
 ```json
 {
-    mailing_list: (mailing_list)
+    "mailing_list": (mailing_list)
 }
 ``` -> payload
 
