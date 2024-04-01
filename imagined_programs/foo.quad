@@ -1,0 +1,30 @@
+# Read in the form submissions csv, filter out
+# users in our opt_out csv, and produce a json payload
+# of user's to send follow up emails to 
+
+```csv.headers
+first_name, _, email as submissions 
+``` <- read("./form_submissions.csv")
+
+```csv.headers
+email as opt_outs
+``` <- read("./opt_outs.csv")
+
+audience = submissions.filter_map(|sub|
+    !opt_outs.contains(sub.email).then_some(sub.email)
+end)
+
+```json.map(audience)
+{
+    "name": (audience.name),
+    "email": (audience.email)
+}
+``` -> mailing_list
+
+```json
+{
+    mailing_list: (mailing_list)
+}
+``` -> payload
+
+write("./payload.json", payload)
