@@ -20,3 +20,8 @@ obj = [
 ]
 obj["name"] = "Benjamin"
 nums[0] = -1
+
+# Maybe I should have two collection types? It'd make serialization easier I think.
+# Or maybe just make it a runtime error for a collection to have both string and integer keys?
+
+
